@@ -67,7 +67,6 @@ public class Game {
             if(checkExistedName(user1, user2)){
                 System.out.println("The name already existed. "
                         + "Please enter different name.");
-                continue;
             }else {
                 break;
             }   
