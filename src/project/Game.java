@@ -100,6 +100,9 @@ public class Game {
 
         p1.setCards(cards1);
         p2.setCards(cards2);
+        
+        // check the number of two players card
+        Boolean compareCardNum = checkNumCards(p1,p2);
 
         // Start Game 
         int count = 1;
@@ -174,5 +177,12 @@ public class Game {
      */
     public String checkFinalWinner(Player p1, Player p2) {
         return p1.getCardInfo().isEmpty() ? p2.getPlayerName() : p1.getPlayerName();
+    }
+    
+    /**
+     * Check Number of Cards
+     */
+    public boolean checkNumCards(Player p1, Player p2){
+        return p1.getCardInfo().size() == p2.getCardInfo().size() ? true : false;
     }
 }
