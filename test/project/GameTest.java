@@ -65,5 +65,66 @@ public class GameTest {
         String result = instance.checkFinalWinner(p1, p2);
         assertEquals(expResult, result);
     }
+    
+        /**
+     * Test of checkNumCards method, of class Game.
+     */
+    @Test
+    public void testCheckNumCardsGood() {
+        System.out.println("checkNumCards Good");
+        Player p1 = new Player("p1");
+        ArrayList<Card> cards = new ArrayList<>();
+        cards.add(new Card(CLUB, ACE));
+        p1.setCards(cards);
+        Player p2 = new Player("p2");
+        cards = new ArrayList<>();
+        cards.add(new Card(CLUB, TWO));
+        p2.setCards(cards);
+        Game instance = new Game("War Game");;
+        boolean expResult = true;
+        boolean result = instance.checkNumCards(p1, p2);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of checkNumCards method, of class Game.
+     */
+    @Test
+    public void testCheckNumCardsBad() {
+        System.out.println("checkNumCards Bad");
+        Player p1 = new Player("p1");
+        ArrayList<Card> cards = new ArrayList<>();
+        cards.add(new Card(CLUB, ACE));
+        p1.setCards(cards);
+        Player p2 = new Player("p2");
+        Game instance = new Game("War Game");;
+        boolean expResult = false;
+        boolean result = instance.checkNumCards(p1, p2);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of checkNumCards method, of class Game.
+     */
+    @Test
+    public void testCheckNumCardsBoundary() {
+        System.out.println("checkNumCards Boundary");
+        Player p1 = new Player("p1");
+        ArrayList<Card> cards = new ArrayList<>();
+        cards.add(new Card(CLUB, ACE));
+        cards.add(new Card(HEARTS, FIVE));
+        cards.add(new Card(SPADE, QUEEN));
+        p1.setCards(cards);
+        Player p2 = new Player("p2");
+        cards = new ArrayList<>();
+        cards.add(new Card(HEARTS, TWO));
+        cards.add(new Card(SPADE, TWO));
+        cards.add(new Card(CLUB, TWO));
+        p2.setCards(cards);
+        Game instance = new Game("War Game");;
+        boolean expResult = true;
+        boolean result = instance.checkNumCards(p1, p2);
+        assertEquals(expResult, result);
+    }
 
 }
