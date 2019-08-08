@@ -6,6 +6,7 @@
  * @modifier Sehyun, 2019
  * @modifier Kowsiya, 2019
  * @modifier Yui, 2019
+ * @modifier Jennie, 2019
  * 
  */
 package project;
