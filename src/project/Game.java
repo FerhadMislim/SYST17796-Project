@@ -5,6 +5,8 @@
  * @author megha,2019
  * @modifier Sehyun, 2019
  * @modifier Kowsiya, 2019
+ * @modifier Yui, 2019
+ * 
  */
 package project;
 
@@ -57,8 +59,19 @@ public class Game {
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter the name of the first player. : ");
         String user1 = input.nextLine();
-        System.out.print("Please enter the name of the second player. : ");
-        String user2 = input.nextLine();
+        
+        String user2 = null; 
+        while(true){   
+            System.out.print("Please enter the name of the second player. : ");
+            user2 = input.nextLine();
+            if(checkExistedName(user1, user2)){
+                System.out.println("The name already existed. "
+                        + "Please enter different name.");
+            }else {
+                break;
+            }   
+        }
+        
         String answer= "";
         int limitNum = 0;
         
@@ -176,7 +189,16 @@ public class Game {
      * Check final winner.
      */
     public String checkFinalWinner(Player p1, Player p2) {
-        return p1.getCardInfo().isEmpty() ? p2.getPlayerName() : p1.getPlayerName();
+        String temp;
+        if(p1.getCardInfo().size() != p2.getCardInfo().size()){
+            if(p1.getCardInfo().isEmpty())
+                temp = p2.getPlayerName();
+            else
+                temp = p1.getPlayerName();
+        }else{
+            temp = "No winner";
+        }
+        return temp;
     }
     
     /**
@@ -184,5 +206,13 @@ public class Game {
      */
     public boolean checkNumCards(Player p1, Player p2){
         return p1.getCardInfo().size() == p2.getCardInfo().size() ? true : false;
+    }
+    
+    public static boolean checkExistedName(String user1, String user2){
+        if(user1.equalsIgnoreCase(user2)){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
