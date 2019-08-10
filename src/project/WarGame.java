@@ -1,5 +1,5 @@
 /**
- * The class that models your game. 
+ * The class that models the game. 
  * @author Sehyun, 2019
  * @modifier Kowsiya, 2019
  */
@@ -14,10 +14,12 @@ public class WarGame {
         
         Game war = new Game("war");
         String play;
+        
+        //code that allows you to repeat the game
         do{
             war.play();
             Scanner in = new Scanner(System.in);
-            System.out.println("\nWant to play again? \nType 'y' for yes or 'n'! for No!");
+            System.out.println("\nWant to play again? \nType 'y' for yes or 'n' for No!");
             play = in.next().toLowerCase();
         }while(play.equals("y")); 
          

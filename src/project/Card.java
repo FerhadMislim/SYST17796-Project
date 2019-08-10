@@ -12,10 +12,12 @@ package project;
 
 public class Card {
 
+    //enum class of card suits
     public enum Suit {
         CLUB, SPADE, HEARTS, DIAMONDS
     };
 
+    //enum class of card values
     public enum Value {
         ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
     };
@@ -23,19 +25,23 @@ public class Card {
     private final Suit suit;
     private final Value value;
 
+    //card constructor
     public Card(Suit s, Value v) {
         suit = s;
         value = v;
     }
 
+    //method that returns card value
     public Value getValue() {
         return this.value;
     }
 
+    //method the return card suit
     public Suit getSuit() {
         return this.suit;
     }
 
+    //method that returns the value of the card
     public int getNum() {
         int num = 0;
 
@@ -85,6 +91,7 @@ public class Card {
         return num;
     }
 
+    //method that returns the string of the card class
     @Override
     public String toString() {
         String format = "%s %s";
