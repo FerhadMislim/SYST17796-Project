@@ -6,6 +6,7 @@
  * @modifier Sehyun, 2019
  * @modifier Kowsiya, 2019
  * @modifier Yui, 2019
+ * @modifier Jennie, 2019
  * 
  */
 package project;
@@ -24,6 +25,7 @@ public class Game {
     private final String gameName;//the title of the game
     private ArrayList<Player> players;// the players of the game
 
+    //game constructor
     public Game(String givenName) {
         gameName = givenName;
     }
@@ -113,6 +115,9 @@ public class Game {
 
         p1.setCards(cards1);
         p2.setCards(cards2);
+        
+        // check the number of two players card
+        Boolean compareCardNum = checkNumCards(p1,p2);
 
         // Start Game 
         int count = 1;
@@ -186,7 +191,23 @@ public class Game {
      * Check final winner.
      */
     public String checkFinalWinner(Player p1, Player p2) {
-        return p1.getCardInfo().isEmpty() ? p2.getPlayerName() : p1.getPlayerName();
+        String temp;
+        if(p1.getCardInfo().size() != p2.getCardInfo().size()){
+            if(p1.getCardInfo().isEmpty())
+                temp = p2.getPlayerName();
+            else
+                temp = p1.getPlayerName();
+        }else{
+            temp = "No winner";
+        }
+        return temp;
+    }
+    
+    /**
+     * Check Number of Cards
+     */
+    public boolean checkNumCards(Player p1, Player p2){
+        return p1.getCardInfo().size() == p2.getCardInfo().size() ? true : false;
     }
     
     public static boolean checkExistedName(String user1, String user2){
