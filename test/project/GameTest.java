@@ -137,5 +137,31 @@ public class GameTest {
         boolean result = instance.checkNumCards(p1, p2);
         assertEquals(expResult, result);
     }
+    
+        /**
+     * Test of checkExistedName method, of class Game.
+     */
+    @Test
+    public void testCheckExistedNameGood() {
+        System.out.println("checkExistedName Good");
+        Player p1 = new Player("user1");
+        Player p2 = new Player("user2");
+        boolean expResult = false;
+        boolean result = Game.checkExistedName("user1", "user2");
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of checkExistedName method, of class Game.
+     */
+    @Test
+    public void testCheckExistedNameBad() {
+        System.out.println("checkExistedName Bad");
+        Player p1 = new Player("user1");
+        Player p2 = new Player("user1");
+        boolean expResult = true;
+        boolean result = Game.checkExistedName("user1", "user1");
+        assertEquals(expResult, result);
+    }
 
 }
